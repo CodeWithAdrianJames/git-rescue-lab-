@@ -20,4 +20,14 @@ const items = [
 assertEqual(calculateTotal(items, null), 40, 'no discount');
 assertEqual(calculateTotal(items, 'SAVE10'), 36, '10% off with SAVE10');
 
+const bulkItems = [
+  { price: 10, qty: 1 },
+  { price: 10, qty: 1 },
+  { price: 10, qty: 1 },
+  { price: 10, qty: 1 },
+  { price: 10, qty: 1 },
+]; // subtotal = 50
+
+assertEqual(calculateTotal(bulkItems, 'BULK20'), 40, '20% off with BULK20 (5+ items)');
+
 process.exitCode = failures > 0 ? 1 : 0;
